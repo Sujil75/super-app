@@ -1,0 +1,10 @@
+.register-container {
+    height: 100vh;
+    display: flex;
+}
+
+.registration-bg {
+    width: 50vw;
+    height: 100vh;
+    object-fit: cover;
+}
