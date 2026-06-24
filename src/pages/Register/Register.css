@@ -4,7 +4,20 @@
 }
 
 .registration-bg {
-    width: 50vw;
+    width: 50%;
     height: 100vh;
-    object-fit: cover;
+    background-image: url("https://res.cloudinary.com/dh1akzmfk/image/upload/v1782325292/registration-bg_optimized_10000_nfthkr.png");
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    padding: 50px;
+}
+
+.registration-bg h1 {
+    font-family: Roboto;
+    color: #fff;
+    font-size: 50px;
 }

@@ -1,16 +1,15 @@
-import React from 'react'
-import registrationbBg from '../../assets/registration-bg.png'
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
 
 import './Register.css'
 
 function Register() {
   return (
     <div className="register-container">
-        <img 
-          src={registrationbBg} 
-          alt="Registration Background" 
-          className="registration-bg"
-        />
+        <div className="registration-bg">
+          <h1>Discover new things on Superapp</h1>
+        </div>
+
+        <RegistrationForm />
     </div>
   )
 }
