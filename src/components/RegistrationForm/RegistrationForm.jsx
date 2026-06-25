@@ -1,13 +1,19 @@
 import {useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom'
 
+import { useStore } from '../../store/useStore'
 import './RegistrationForm.css'
 
 function RegistrationForm() {
-    const [name, setName] = useState("")
-    const [username, setUsername] = useState("")
-    const [email, setEmail] = useState("")
-    const [mobile, setMobile] = useState("")
-    const [isChecked, setIsChecked] = useState(false)
+    const setUser = useStore(state => state.setUser)
+    const navigate = useNavigate()
+    const [formData, setFormData] = useState({
+        name: "",
+        username: "",
+        email: "",
+        mobile: "",
+        isCheck: false
+    })
     const [errMsg, setErrMsg] = useState("")
 
     useEffect(() => {
@@ -20,30 +26,28 @@ function RegistrationForm() {
         return () => clearTimeout(timer)
     }, [errMsg])
 
+    const formValidation = () => {
+        const error = {}
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        const phonePattern = /^\d{10}$/
+
+        if (!formData.name.trim()) error.name = "Name field cannot be left blank."
+        if (!formData.username.trim()) error.username = "Username field cannot be left blank."
+        if (!emailPattern.test(formData.email)) error.email = "Please input a valid email formatting schema."
+        if (!phonePattern.test(formData.mobile)) error.mobile = "Mobile field must encompass exactly 10 digital characters."
+        if (!formData.isCheck) error.isCheck = "Check this box if you want to proceed"
+
+        setErrMsg(error)
+
+        return Object.keys(error).length === 0
+    }
+
     function onFormSubmission(e) {
         e.preventDefault();
-
-        const data = {
-            name: name.trim(),
-            username: username.trim(),
-            email: email.trim(),
-            mobile: mobile.trim()
-        };
-
-        const newErr = {}
-
-        if (!data.name) newErr.name = "Field is required"
-        if (!data.username) newErr.username = "Field is required"
-        if (!data.email) newErr.email = "Field is required"
-        if (!data.mobile) newErr.mobile = "Field is required"
-
-        if (!isChecked) newErr.checkbox = "Check the box if you want to proceed"
-        
-        setErrMsg(newErr)
-
-        if (Object.keys(newErr).length > 0) return
-
-        console.log(data);
+        if (formValidation()) {
+            setUser(formData)
+            navigate('categories')
+        }
     }
 
     return (
@@ -56,30 +60,55 @@ function RegistrationForm() {
 
             <form onSubmit={e => onFormSubmission(e)}>
                 <div className='form-container'>
-                    <input type='text' placeholder='Name' value={name} onChange={e => setName(e.target.value)} />
+                    <input 
+                            type='text' 
+                            placeholder='Name' 
+                            value={formData.name} 
+                            onChange={e => setFormData({...formData, name: e.target.value})} 
+                        />
                     {errMsg.name && <p>{errMsg.name}</p>}
                 </div>
                 <div className='form-container'>
-                    <input type='text' placeholder='Username' value={username} onChange={e => setUsername(e.target.value)} />
+                    <input 
+                        type='text' 
+                        placeholder='Username' 
+                        value={formData.username} 
+                        onChange={e => setFormData({...formData, username: e.target.value})} 
+                    />
                     {errMsg.username && <p>{errMsg.username}</p>}
                 </div>
                 <div className='form-container'>
-                    <input type='text' placeholder='Email' value={email} onChange={e => setEmail(e.target.value)} />
+                    <input 
+                        type='text' 
+                        placeholder='Email' 
+                        value={formData.email} 
+                        onChange={e => setFormData({...formData, email: e.target.value})} 
+                    />
                     {errMsg.email && <p>{errMsg.email}</p>}
                 </div>
                 <div className='form-container'>
-                    <input type='text' placeholder='Mobile' value={mobile} onChange={e => setMobile(e.target.value)} />
+                    <input 
+                        type='text' 
+                        placeholder='Mobile' 
+                        value={formData.mobile} 
+                        onChange={e => setFormData({...formData, mobile: e.target.value})} 
+                    />
                     {errMsg.mobile && <p>{errMsg.mobile}</p>}
                 </div>
                 
                 <div className='checkbox-container'>
                     <div className='checkbox-main-container'>
-                        <input id='consent-check' type='checkbox' checked={isChecked} onChange={e => setIsChecked(e.target.checked)} />
+                        <input 
+                            id='consent-check' 
+                            type='checkbox' 
+                            checked={formData.isCheck} 
+                            onChange={e => setFormData({...formData, isCheck: e.target.checked})} 
+                        />
                         <label htmlFor='consent-check'>
                             Share my registration data with Superapp
                         </label>
                     </div>
-                    {errMsg.checkbox && <p>{errMsg.checkbox}</p>}
+                    {errMsg.isCheck && <p>{errMsg.isCheck}</p>}
                 </div>
 
                 <button type='submit'>SIGN UP</button>

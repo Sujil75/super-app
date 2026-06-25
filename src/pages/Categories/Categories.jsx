@@ -1,4 +1,5 @@
 import { icons } from '../../data/icons'
+import CategoryCard from '../../components/CategoryCard/CategoryCard'
 import './Categories.css'
 
 function Categories() {
@@ -16,6 +17,8 @@ function Categories() {
                 <p>Minimum 3 categories required</p>
             </div>
         </div>
+
+        <CategoryCard />
     </section>
     )
 }
