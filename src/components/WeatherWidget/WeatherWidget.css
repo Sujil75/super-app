@@ -1,0 +1,81 @@
+.weather-widget-section {
+    width: 100%;
+
+    border-radius: 25px;
+    color: #fff;
+}
+
+.date-time-section {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 10px 20px;
+    background: #FF4ADE;
+
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+.date-time-section h1 {
+    font-weight: 500;
+}
+
+.weather-container {
+    box-sizing: border-box;
+    width: 100%;
+    height: 200px;
+
+    background: #101744;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.weather-details-container {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.weather-details-container h1 {
+    font-weight: 500;
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.weather-details-container p {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.weather-details-container div {
+    display: flex;
+    height: fit-content;
+}
+
+.weather-container hr {
+    height: 50px;
+}
+
+.weather-remaining-details-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.weather-remaining-details-container p {
+    font-size: 12px;
+}
