@@ -1,5 +1,7 @@
 import { BiSolidError } from "react-icons/bi";
+import { IoMdClose } from "react-icons/io";
 
 export const icons = {
-    warningIcon: BiSolidError
+    WarningIcon: BiSolidError,
+    CloseIcon: IoMdClose,
 }

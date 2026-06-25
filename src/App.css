@@ -9,6 +9,8 @@
 
 /* Base Styles */
 body {
+  --card-bg: #fff;
+
   font-family: Arial, sans-serif;
   background-color: #000;
   color: #222;
