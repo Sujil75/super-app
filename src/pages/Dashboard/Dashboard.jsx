@@ -1,5 +1,6 @@
 import { useStore } from '../../store/useStore'
 import WeatherWidget from '../../components/WeatherWidget/WeatherWidget'
+import NewsWidget from '../../components/NewsWidget/NewsWidget'
 import './Dashboard.css'
 
 function Dashboard() {
@@ -32,6 +33,8 @@ function Dashboard() {
 
           <WeatherWidget />
         </div>
+
+        <NewsWidget />
     </section>
   )
 }

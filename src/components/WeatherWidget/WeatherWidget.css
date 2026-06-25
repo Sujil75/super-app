@@ -1,6 +1,4 @@
 .weather-widget-section {
-    width: 100%;
-
     border-radius: 25px;
     color: #fff;
 }
@@ -62,6 +60,7 @@
 
 .weather-details-container div {
     display: flex;
+    align-items: center;
     height: fit-content;
 }
 

@@ -39,7 +39,7 @@ function WeatherWidget() {
             clearInterval(time) 
             clearTimeout(weatherTimer)
         }
-    }, [])
+    }, [weather])
 
     return (
         <section className='weather-widget-section'>
@@ -70,8 +70,8 @@ function WeatherWidget() {
                     <h1>{weather?.main?.temp != null ? `${Math.ceil(weather?.main?.temp)}°C` : "Loading..."}</h1>
                     
                     <div>
-                        <Thermometer size={20} />
-                        <p>1010 mbar Pressure</p>
+                        <Thermometer size={30} />
+                        <p>1010 mbar <br /> Pressure</p>
                     </div>
                 </div>
 
