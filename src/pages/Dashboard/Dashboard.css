@@ -1,5 +1,6 @@
 .dashboard-container {
     box-sizing: border-box;
+    height: 100vh;
     width: 100%;
 
     display: grid;
@@ -9,10 +10,29 @@
     padding: 40px 20px;
 }
 
-.dashboard-content-container {
+.dashboard-main-container {
+    box-sizing: border-box;
     height: 100%;
     display: grid;
-    grid-template-columns: 700px 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "top" "bottom";
+    gap: 16px;
+    overflow-y: auto;
+}
+
+.dashboard-main-container::-webkit-scrollbar {
+    width: 0;
+}
+
+.timer-dashboard-container {
+    grid-area: bottom;
+}
+
+.dashboard-content-container {
+    grid-area: top;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     grid-template-areas: "left right";
     gap: 16px;
 }
@@ -22,11 +42,13 @@
 }
 
 .user-weather-main-container {
+    box-sizing: border-box;
     grid-area: left;
 
     display: flex;
     flex-direction: column;
     gap: 20px;
+    height: 100%;
 
     transform-origin: top left;
     transition: transform .4s ease;
@@ -34,6 +56,7 @@
 
 .user-container {
     box-sizing: border-box;
+    height: auto;
     width: 100%;
     padding: 20px 40px;
 
@@ -46,10 +69,11 @@
 }
 
 .user-container img {
-    width: 150px;
-    height: 300px;
+    width: 15%;
+    height: 100%;
     object-fit: cover;
     border-radius: 100px;
+    border: 2px solid #fff;
 }
 
 .user-details-container {
@@ -63,14 +87,17 @@
 
 .user-details-container h3 {
     font-weight: 500;
+    font-size: 1rem;
 }
 
 .user-details-container h2 {
     font-weight: 500;
+    font-size: 1rem;
 }
 
 .user-details-container h1 {
     font-weight: 500;
+    font-size: 1rem;
 }
 
 .user-details-container ul {
@@ -100,7 +127,7 @@
 .user-details-container ul > li {
     box-sizing: border-box;
     background: #9f94ff;
-    width: 150px;
+    width: auto;
 
     display: flex;
     align-items: center;

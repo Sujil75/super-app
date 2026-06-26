@@ -2,6 +2,7 @@ import { useStore } from '../../store/useStore'
 import WeatherWidget from '../../components/WeatherWidget/WeatherWidget'
 import NewsWidget from '../../components/NewsWidget/NewsWidget'
 import NotesWidget from '../../components/NotesWidget/NotesWidget'
+import TimerWidget from '../../components/TimerWidget/TimerWidget'
 import './Dashboard.css'
 
 function Dashboard() {
@@ -42,7 +43,9 @@ function Dashboard() {
             </div>
           </div>
 
-          <div></div>
+          <div className='timer-dashboard-container'>
+            <TimerWidget />
+          </div>
         </div>
 
         <div className='news-dashboard-container'>

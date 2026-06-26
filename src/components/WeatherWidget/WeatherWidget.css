@@ -5,10 +5,12 @@
 
 .date-time-section {
     box-sizing: border-box;
+    height: auto;
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: 50px;
 
     padding: 10px 20px;
     background: #FF4ADE;
@@ -19,12 +21,14 @@
 
 .date-time-section h1 {
     font-weight: 500;
+    font-size: 18px;
 }
 
 .weather-container {
     box-sizing: border-box;
     width: 100%;
-    height: 200px;
+    height: auto;
+    padding: 10px;
 
     background: #101744;
     border-bottom-left-radius: 25px;
@@ -47,13 +51,13 @@
 
 .weather-details-container h1 {
     font-weight: 500;
-    font-size: 40px;
+    font-size: 20px;
     margin: 0;
     padding: 0;
 }
 
 .weather-details-container p {
-    font-size: 18px;
+    font-size: 12px;
     margin: 0;
     padding: 0;
 }

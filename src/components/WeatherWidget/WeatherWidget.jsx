@@ -59,7 +59,7 @@ function WeatherWidget() {
 
             <div className='weather-container'>
                 <div className='weather-details-container'>
-                    <CloudsIcon size={60} />
+                    <CloudsIcon size={30} />
 
                     <p>{weather?.weather?.[0]?.main || "Loading..."}</p>
                 </div>
@@ -70,7 +70,7 @@ function WeatherWidget() {
                     <h1>{weather?.main?.temp != null ? `${Math.ceil(weather?.main?.temp)}°C` : "Loading..."}</h1>
                     
                     <div>
-                        <Thermometer size={30} />
+                        <Thermometer size={20} />
                         <p>1010 mbar <br /> Pressure</p>
                     </div>
                 </div>
