@@ -8,11 +8,17 @@ function RegistrationForm() {
     const setUser = useStore(state => state.setUser)
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
-        name: "KK Vinay",
-        username: "vinay060",
-        email: "Vinay090@gmail.com",
-        mobile: "0123456789",
-        isCheck: true
+        // name: "KK Vinay",
+        // username: "vinay060",
+        // email: "Vinay090@gmail.com",
+        // mobile: "0123456789",
+        // isCheck: true
+
+        name: "",
+        username: "",
+        email: "",
+        mobile: "",
+        isCheck: false
     })
     const [errMsg, setErrMsg] = useState("")
 
